@@ -1,5 +1,6 @@
-import br.com.alura.screenmatch.modelos.Filme;
-import br.com.alura.screenmatch.modelos.Serie;
+import calculos.CalculadoraDeTempo;
+import modelos.Filme;
+import modelos.Serie;
 
 public class Principal {
     public static void main(String[] args) {
@@ -8,6 +9,7 @@ public class Principal {
         meuFilme.setNome("Diario de uma paixão");
         meuFilme.setAnoDeLancamento(2005);
         meuFilme.setAnoDeLancamento(126);
+        meuFilme.setDuracaoEmMinutos(180);
 
 
         meuFilme.exibirFichaTecnica();
@@ -24,5 +26,25 @@ public class Principal {
         serie.setAnoDeLancamento(2010);
         serie.setTemporadas(7);
         serie.setEpPorTemporada(12);
+        serie.setMinutosPorEpsodio(50);
+
+        System.out.println("Nome da série: " + serie.getNome());
+        System.out.println("Número de temporadas: " + serie.getTemporadas());
+        System.out.println("Epsódios por temporada: " + serie.getEpPorTemporada());
+
+        Filme outroFilme = new Filme();
+        outroFilme.setNome("Avatar");
+        outroFilme.setAnoDeLancamento(2014);
+        outroFilme.setAnoDeLancamento(126);
+        outroFilme.setDuracaoEmMinutos(200);
+
+
+        CalculadoraDeTempo calc = new CalculadoraDeTempo();
+        calc.inclui(meuFilme);
+        calc.inclui(outroFilme);
+        calc.inclui(serie);
+        System.out.println(calc.getTempoTotal());
+
+
     }
 }
